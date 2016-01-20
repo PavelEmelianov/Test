@@ -1,4 +1,5 @@
 package com.nixsolutions.emelianov.actions;
+
 import com.nixsolutions.emelianov.entity.User;
 import com.opensymphony.xwork2.Action;
 
