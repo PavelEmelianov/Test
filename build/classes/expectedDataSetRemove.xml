@@ -1,7 +1,0 @@
-<dataset>
-
-  <ROLE ID="1" NAME="admin"/>
-  
-  <USER ID="1" LOGIN="ivanov_login" PASSWORD="ivanov_password" EMAIL="ivanov@email" FIRSTNAME="ivan" LASTNAME="ivanov" BIRTHDATE="1990-01-01" ROLEID="1"/>
-  
-</dataset>
