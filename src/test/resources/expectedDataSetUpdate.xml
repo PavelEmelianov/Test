@@ -1,0 +1,13 @@
+<dataset>
+	<ROLE ID="1" NAME="new_user" />
+	<ROLE ID="2" NAME="user" />
+
+	<USER ID="1" LOGIN="ivanov_login" PASSWORD="ivanov_password"
+		EMAIL="ivanov@email" FIRSTNAME="ivan" LASTNAME="ivanov" BIRTHDATE="1990-01-01"
+		ROLEID="1" />
+
+	<USER ID="2" LOGIN="new_login" PASSWORD="new_password" EMAIL="new@email"
+		FIRSTNAME="new_fname" LASTNAME="new_lname" BIRTHDATE="1989-01-01"
+		ROLEID="1" />
+
+</dataset>
