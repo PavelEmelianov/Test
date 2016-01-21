@@ -1,4 +1,4 @@
-package com.nixsolutions.emelianov.utils;
+package com.emelianov.utils;
 
 import java.io.OutputStream;
 import java.net.URL;

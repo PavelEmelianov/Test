@@ -1,9 +1,9 @@
-package com.nixsolutions.emelianov.actions;
-//abstract action
+package com.emelianov.actions;
 import javax.inject.Inject;
+
+import com.emelianov.service.RoleService;
+import com.emelianov.service.UserService;
 import org.springframework.beans.factory.annotation.Qualifier;
-import com.nixsolutions.emelianov.service.RoleService;
-import com.nixsolutions.emelianov.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public abstract class AbstractAction extends ActionSupport {

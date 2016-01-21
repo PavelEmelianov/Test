@@ -1,4 +1,4 @@
-package com.nixsolutions.emelianov.entity;
+package com.emelianov.entity;
 
 import java.io.Serializable;
 import javax.inject.Named;

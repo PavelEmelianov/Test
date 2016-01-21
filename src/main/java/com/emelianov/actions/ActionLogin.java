@@ -1,9 +1,9 @@
-package com.nixsolutions.emelianov.actions;
+package com.emelianov.actions;
 
 import java.util.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.User;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 

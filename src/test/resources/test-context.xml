@@ -46,7 +46,7 @@
 		<property name="password" value="${password}" />
 	</bean>
 
-	<bean id="role" class="com.nixsolutions.emelianov.entity.Role"></bean>
-	<bean id="user" class="com.nixsolutions.emelianov.entity.User"></bean>
+	<bean id="role" class="com.emelianov.entity.Role"></bean>
+	<bean id="user" class="com.emelianov.entity.User"></bean>
 
 </beans>

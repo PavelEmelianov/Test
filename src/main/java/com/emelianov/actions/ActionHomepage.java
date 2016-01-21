@@ -1,8 +1,7 @@
-package com.nixsolutions.emelianov.actions;
+package com.emelianov.actions;
 
 import java.util.List;
-import com.nixsolutions.emelianov.entity.User;
-import com.opensymphony.xwork2.Action;
+import com.emelianov.entity.User;
 
 public class ActionHomepage extends AbstractAction {
 
@@ -13,7 +12,7 @@ public class ActionHomepage extends AbstractAction {
     public String execute() {
 
         userList = userService.findAll();
-        return Action.SUCCESS;
+        return SUCCESS;
     }
 
     public List<User> getUserList() {

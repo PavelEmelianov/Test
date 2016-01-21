@@ -1,6 +1,6 @@
-package com.nixsolutions.emelianov.actions;
+package com.emelianov.actions;
 
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.User;
 import com.opensymphony.xwork2.Action;
 
 public class ActionAddEditPage extends AbstractAction {
@@ -18,6 +18,7 @@ public class ActionAddEditPage extends AbstractAction {
     private String role;
 
     public String execute() {
+
         if (login == null) {
             setOperation("add");
             return Action.SUCCESS;
@@ -34,6 +35,7 @@ public class ActionAddEditPage extends AbstractAction {
         setRole(user.getRole().getName());
 
         return Action.SUCCESS;
+
     }
 
     public String getRole() {

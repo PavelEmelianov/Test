@@ -1,7 +1,7 @@
-package com.nixsolutions.emelianov.actions;
+package com.emelianov.actions;
 
 import java.util.List;
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.User;
 import com.opensymphony.xwork2.Action;;
 
 public class ActionDelete extends AbstractAction {

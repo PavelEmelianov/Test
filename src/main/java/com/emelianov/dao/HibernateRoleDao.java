@@ -1,14 +1,15 @@
-package com.nixsolutions.emelianov.dao;
+package com.emelianov.dao;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.emelianov.entity.Role;
 import org.hibernate.Query;
 
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
-import com.nixsolutions.emelianov.entity.Role;
 
 @Named("roleDao")
 public class HibernateRoleDao implements RoleDao {

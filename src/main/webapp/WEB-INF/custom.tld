@@ -8,7 +8,7 @@
 	<short-name>MyTags</short-name>
 	<tag>
 		<name>User</name>
-		<tag-class>com.nixsolutions.emelianov.tag.CustomTag</tag-class>
+		<tag-class>com.tag.CustomTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<name>user</name>

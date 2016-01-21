@@ -1,10 +1,12 @@
-package com.nixsolutions.emelianov.service;
+package com.emelianov.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import com.emelianov.dao.UserDao;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.nixsolutions.emelianov.dao.UserDao;
 
 @Service
 @Transactional(readOnly = true)
@@ -27,7 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
   
-        com.nixsolutions.emelianov.entity.User domainUser = userDao
+        com.emelianov.entity.User domainUser = userDao
                 .findByLogin(login);
         boolean enabled = true;
         boolean accountNonExpired = true;

@@ -1,6 +1,6 @@
-package com.nixsolutions.emelianov.dao;
+package com.emelianov.dao;
 
-import com.nixsolutions.emelianov.entity.Role;
+import com.emelianov.entity.Role;
 
 public interface RoleDao {
 

@@ -1,6 +1,8 @@
-package com.nixsolutions.emelianov.dao;
+package com.emelianov.dao;
 
 import javax.inject.Inject;
+
+import com.emelianov.entity.Role;
 import org.dbunit.DBTestCase;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.dataset.IDataSet;
@@ -17,8 +19,6 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
-import com.nixsolutions.emelianov.dao.RoleDao;
-import com.nixsolutions.emelianov.entity.Role;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:**/test-context.xml" })

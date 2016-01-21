@@ -1,4 +1,4 @@
-package com.nixsolutions.emelianov.entity;
+package com.emelianov.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -6,7 +6,6 @@ import javax.inject.Named;
 import javax.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Named

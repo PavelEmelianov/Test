@@ -1,9 +1,9 @@
-package com.nixsolutions.emelianov.tag;
+package com.emelianov.tag;
 
 import java.io.IOException;
 import java.util.Calendar;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.User;
 
 public class CustomTag extends SimpleTagSupport {
 

@@ -1,9 +1,9 @@
-package com.nixsolutions.emelianov.service;
+package com.emelianov.service;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Qualifier;
-import com.nixsolutions.emelianov.dao.RoleDao;
-import com.nixsolutions.emelianov.entity.Role;
+import com.emelianov.dao.RoleDao;
+import com.emelianov.entity.Role;
 
 @Named("roleService")
 public class RoleService {

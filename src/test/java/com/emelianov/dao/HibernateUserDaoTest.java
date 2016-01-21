@@ -1,4 +1,4 @@
-package com.nixsolutions.emelianov.dao;
+package com.emelianov.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,10 +19,8 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
-import com.nixsolutions.emelianov.dao.RoleDao;
-import com.nixsolutions.emelianov.dao.UserDao;
-import com.nixsolutions.emelianov.entity.Role;
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.Role;
+import com.emelianov.entity.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:**/test-context.xml" })

@@ -1,12 +1,12 @@
-package com.nixsolutions.emelianov.service;
+package com.emelianov.service;
 
 import java.util.List;
 
 import javax.inject.*;
 
-import com.nixsolutions.emelianov.dao.RoleDao;
-import com.nixsolutions.emelianov.dao.UserDao;
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.dao.RoleDao;
+import com.emelianov.dao.UserDao;
+import com.emelianov.entity.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 @Named("userService")

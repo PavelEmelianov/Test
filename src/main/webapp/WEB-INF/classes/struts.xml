@@ -9,30 +9,30 @@
 
 	<package name="default" extends="struts-default" namespace="/">
 
-		<action name="login" class="com.nixsolutions.emelianov.actions.ActionLogin">
+		<action name="login" class="com.emelianov.actions.ActionLogin">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/login.jsp</result>
 		</action>
 
-		<action name="register" class="com.nixsolutions.emelianov.actions.ActionRegister">
+		<action name="register" class="com.emelianov.actions.ActionRegister">
 			<result name="success">/login.jsp</result>
 			<result name="input">/registration.jsp</result>
 		</action>
 		
-		<action name="delete" class="com.nixsolutions.emelianov.actions.ActionDelete">
+		<action name="delete" class="com.emelianov.actions.ActionDelete">
             <result name="success">/homepage.jsp</result>
         </action>
         
-        <action name="addEdit" class="com.nixsolutions.emelianov.actions.ActionAddEditPage">
+        <action name="addEdit" class="com.emelianov.actions.ActionAddEditPage">
             <result name="success">/add_edit.jsp</result>
         </action>
         
-         <action name="addEditUser" class="com.nixsolutions.emelianov.actions.ActionAddEditUser">
+         <action name="addEditUser" class="com.emelianov.actions.ActionAddEditUser">
             <result name="success">/homepage.jsp</result>
             <result name="input">/add_edit.jsp</result>
         </action>
         
-        <action name="homepage" class="com.nixsolutions.emelianov.actions.ActionHomepage">
+        <action name="homepage" class="com.emelianov.actions.ActionHomepage">
             <result name="success">/homepage.jsp</result>
         </action>
 

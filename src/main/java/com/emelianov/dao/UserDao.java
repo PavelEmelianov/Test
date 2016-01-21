@@ -1,8 +1,8 @@
-package com.nixsolutions.emelianov.dao;
+package com.emelianov.dao;
 
 import java.util.List;
 
-import com.nixsolutions.emelianov.entity.User;
+import com.emelianov.entity.User;
 
 public interface UserDao {
 

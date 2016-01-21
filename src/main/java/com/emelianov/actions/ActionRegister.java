@@ -1,15 +1,15 @@
-package com.nixsolutions.emelianov.actions;
+package com.emelianov.actions;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import com.nixsolutions.emelianov.entity.User;
-import com.nixsolutions.emelianov.utils.DateParser;
-import com.opensymphony.xwork2.Action;
+import com.emelianov.entity.User;
+import com.emelianov.utils.CaptchaValidator;
+import com.emelianov.utils.DateParser;
+import com.opensymphony.xwork2.ActionContext;
 
-public class ActionAddEditUser extends AbstractAction {
+public class ActionRegister extends AbstractAction {
 
-    private static final long serialVersionUID = 1284586918465716003L;
+    private static final long serialVersionUID = -2287296300181726551L;
 
     private String login;
     private String password;
@@ -18,9 +18,7 @@ public class ActionAddEditUser extends AbstractAction {
     private String firstName;
     private String lastName;
     private String birthday;
-    private String role;
-    private String operation;
-    private List<User> userList;
+    private String message;
 
     public void validate() {
 
@@ -33,14 +31,9 @@ public class ActionAddEditUser extends AbstractAction {
 
         if (login == null || (login.trim().equals(""))) {
             addFieldError("login", "Login cannot be empty");
+        } else if (userService.findByLogin(login) != null) {
+            addFieldError("login", "User is already exist");
         }
-
-        if (operation.equals("add")) {
-            if (userService.findByLogin(login) != null) {
-                addFieldError("login", "User is already exist");
-            }
-        }
-
         if (password == null || (password.trim().equals(""))) {
             addFieldError("password", "Password cannot be empty");
         }
@@ -53,19 +46,9 @@ public class ActionAddEditUser extends AbstractAction {
             addFieldError("email", "Email cannot be empty");
         } else if (!emailMatcher.find()) {
             addFieldError("email", "Invalid e-mail");
+        } else if(userService.findByEmail(email)!=null){
+            addFieldError("email", "E-mail is already exist");
         }
-
-        if (operation.equals("add")) {
-            if (userService.findByEmail(email) != null) {
-                addFieldError("email", "E-mail is already exist");
-            }
-        } else {
-            if (userService.findByEmail(email) != null && !userService
-                    .findByLogin(login).getEmail().equals(email)) {
-                addFieldError("email", "E-mail is already exist");
-            }
-        }
-
         if (firstName == null || (firstName.trim().equals(""))) {
             addFieldError("firstName", "First name cannot be empty");
         }
@@ -75,12 +58,30 @@ public class ActionAddEditUser extends AbstractAction {
         if (birthday == null || (birthday.trim().equals(""))) {
             addFieldError("birthday", "Birthday cannot be empty");
         } else if (!dateMatcher.find()) {
-            addFieldError("birthday", "<yyyy-dd-yy> format required");
+            addFieldError("birthday",
+                    "<yyyy-dd-yy> format required");
+        }
+
+        String captchaResponse = ((String[]) ActionContext.getContext()
+                .getParameters().get("g-recaptcha-response"))[0];
+        if (!CaptchaValidator.verify(captchaResponse)) {
+            addFieldError("login", "Invalid captcha");
         }
 
     }
 
     public String execute() {
+        
+        User user = createUserWithoutRole();
+        user.setRole(roleService.findByName("user"));
+        userService.create(user);
+        setMessage("You have been successfully registered!");
+        cleanUserData();
+        return SUCCESS;
+
+    }
+
+    private User createUserWithoutRole() {
 
         User user = new User();
         user.setLogin(login);
@@ -89,22 +90,18 @@ public class ActionAddEditUser extends AbstractAction {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setBirthday(DateParser.parseDate(birthday));
-        user.setRole(roleService.findByName(role));
 
-        switch (operation) {
-        case "add":
-            userService.create(user);
-            userList = userService.findAll();
-            return Action.SUCCESS;
-        case "edit":
-            user.setId(userService.findByLogin(login).getId());
-            userService.update(user);
-            userList = userService.findAll();
-            return Action.SUCCESS;
-        default:
-            return Action.INPUT;
-        }
+        return user;
+    }
 
+    private void cleanUserData() {
+        setLogin("");
+        setPassword("");
+        setConfirmPassword("");
+        setEmail("");
+        setFirstName("");
+        setLastName("");
+        setBirthday("");
     }
 
     public String getLogin() {
@@ -163,28 +160,12 @@ public class ActionAddEditUser extends AbstractAction {
         this.birthday = birthday;
     }
 
-    public String getOperation() {
-        return operation;
+    public String getMessage() {
+        return message;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
-
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 }
